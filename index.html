@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title></title>
+    <link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+
+    <div class="login">
+        <form method="post">
+            <input type="text" class="port-number" placeholder="포트번호" required="required">
+            <input type="text" class="path" placeholder="경로를 지정하시려면 클릭하세요" required="required" />
+            <input type="text" class="url" placeholder="만화id" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">다운로드</button>
+        </form>
+    </div>
+
+    <div class="status">
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./mainPage.js"></script>
+    <script src="./lib/down.js"></script>
+    <script src="./lib/core.js"></script>
+    </script>
+
+  </body>
+</html>
