@@ -17,15 +17,12 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-<<<<<<< HEAD
     "electron": "^9.0.5"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "filenamify": "^4.1.0",
-    "request": "^2.88.2"
-=======
+    "request": "^2.88.2",
     "electron": "^9.1.2"
->>>>>>> 3c566283c2d27410148b795a05573af36ccf58c1
   }
 }

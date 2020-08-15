@@ -5,11 +5,6 @@ const btn = document.querySelector('.btn')
 const {main} = require('./lib/core')
 const status = document.querySelector('.status')
 
-const {
-  dialog
-} = require('electron').remote;
-
-
 //local
 const PATH_LS = 'toPath';
 const PORT_LS = 'toPort';
@@ -71,7 +66,6 @@ function btnClick(e) {
         status.innerText = err
       }
       if(Success === true){
-        status.innerText = '다운로드 완료'
       }
   })
 
