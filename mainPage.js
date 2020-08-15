@@ -29,12 +29,21 @@ function pathClick(e) {
   const value = dialog.showOpenDialog({
     properties: ['openDirectory']
   })
+
+
   value.then(result => {
 
-    path.value = result.filePaths
+    console.log(result.filePaths)
 
-    localStorage.removeItem(PATH_LS);
-    localStorage.setItem(PATH_LS, JSON.stringify(path.value));
+
+    if(result.filePaths.length !== 0){
+      
+      path.value = result.filePaths
+
+      localStorage.removeItem(PATH_LS);
+      localStorage.setItem(PATH_LS, JSON.stringify(path.value));
+
+    }
 
   }).catch(err => {
     alert('잘못된경로')
@@ -49,14 +58,21 @@ function pathClick(e) {
 function btnClick(e) {
   
   e.preventDefault()
-  
 
-  
-  status.innerText = '다운로드중'
-  
+  if(!(portNumber.value && url.value && path.value && AGENT))
+  {
+    return
+  }
+
+  status.innerText = '잠시만 기다려주세요'
 
   main(portNumber.value,url.value,path.value,AGENT, (err,Success)=>{
-      if(err) status.innerText = err
+      if(err) {
+        status.innerText = err
+      }
+      if(Success === true){
+        status.innerText = '다운로드 완료'
+      }
   })
 
 }
@@ -77,8 +93,9 @@ function init() {
   })
 
 
-  path.addEventListener('click', pathClick)
+    path.addEventListener('click', pathClick)
 
+  
   portNumber.addEventListener('change', (e) => {
 
     localStorage.removeItem(PORT_LS);
